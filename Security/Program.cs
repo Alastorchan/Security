@@ -14,8 +14,8 @@ namespace Security
         static string subpath = "";
         static List<User> users = new List<User>();
         static DirectoryInfo dirInfo;
-        static String name = "";
-        static String password = "";
+        static string name = "";
+        static string password = "";
         static Role role;
         static bool guest = false;
         static User activeUser;
@@ -42,9 +42,8 @@ namespace Security
         static void CreateUser()
         {
             Console.Clear();
-            User user2 = new User("Nikita", "asdfg", Role.User);
-            User user3 = new User("Sasha", "zxcvb", Role.User);
-            String str = "";
+
+            string str = "";
             Console.WriteLine("Войти как гость? Y\\N");
             str = Console.ReadLine();
             if (str.ToLower() == "y")
@@ -58,7 +57,7 @@ namespace Security
                     users.Add(guest);
                 }
                 else {
-                    Console.WriteLine("Гость уже есть в системе!!!");
+                    Console.WriteLine("Гость уже есть в системе!");
                 }
             }
             else
@@ -173,12 +172,12 @@ namespace Security
 
         static void Main(string[] args)
         {
-            // хочу создать пользователей
-            // менять пользователей
-            // получать доступ к созданным файлам и директориям
-            // учитывать какой пользователь создал данный файл
-            // другим пользователям дать только просмотр
-            // 
+            // TODO: хочу создать пользователей
+            // TODO: менять пользователей
+            // TODO: получать доступ к созданным файлам и директориям
+            // TODO: учитывать какой пользователь создал данный файл
+            // TODO: другим пользователям дать только просмотр
+  
             name = "Admin";
             password = "Admin";
             role = Role.Admin;
