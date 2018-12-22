@@ -12,7 +12,7 @@ namespace Security
         Admin,
         Guest
     }
-    class User
+    public class User
     {
         private string name;
         private string password;
