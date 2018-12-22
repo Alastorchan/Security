@@ -19,6 +19,13 @@ namespace Security
         //private User user;
         //private AccessRights right;
 
+        public ACL()
+        {
+            User = Program.activeUser;
+            Right = AccessRights.Reading;
+        }
+
+
         public User User
         {
             get; set;

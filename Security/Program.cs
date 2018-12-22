@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Xml;
 using System.Xml.Serialization;
+using Security.Map;
 
 namespace Security
 {
@@ -14,19 +15,21 @@ namespace Security
     {
       
         static List<User> users = new List<User>();
-        static User activeUser;
+        public static User activeUser;
+        public static AccessRights activeAccessRights;
         static string currentPath = @"C:\OS";
-        static Dictionary<string, List<ACL>> access = new Dictionary<string, List<ACL>>();
+        static Map<string, List<ACL>> access = new Map<string, List<ACL>>();
 
-        public static void Load(string filename, out Dictionary<string, List<ACL>> loadedAccess)
+        public static void Load(string filename)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Dictionary<string, List<ACL>>));
-            loadedAccess = (Dictionary<string, List<ACL>>)serializer.Deserialize(new FileStream(filename, FileMode.Open));
+            
+            XmlSerializer serializer = new XmlSerializer(typeof(Map<string, List<ACL>>));
+            access = (Map<string, List<ACL>>)serializer.Deserialize(new FileStream(filename, FileMode.Open));
         }
 
         public static void Save(string filename)
         {
-            XmlSerializer serializer = new XmlSerializer(typeof(Dictionary<string, List<ACL>>));
+            XmlSerializer serializer = new XmlSerializer(typeof(Map<string, List<ACL>>));
             serializer.Serialize(new FileStream(filename, FileMode.Create), access);
         }
 
@@ -557,7 +560,7 @@ namespace Security
                         }
                     case ConsoleKey.Escape:
                         {
-                            Save("C:\test.xml");
+                            Save("D:\\test.xml");
                             Environment.Exit(0);
                             break;
                         }
