@@ -13,8 +13,7 @@ namespace Security
         Reading, // Чтение
         Record // Запись
     }
-
-    public class ACL
+    class ACL
     {
         //private User user;
         //private AccessRights right;
@@ -42,6 +41,4 @@ namespace Security
             Right = right;
         }
     }
-
-    
 }
